@@ -20,6 +20,7 @@ namespace MMPLogger
         public Service1()
         {
             InitializeComponent();
+            CanHandleSessionChangeEvent = true;
         }
 
         #endregion
@@ -28,11 +29,8 @@ namespace MMPLogger
 
         protected override void OnStart(string[] args)
         {
-            Debugger.Break();
-
             Clockwork.Instance.ENDPOINT = ConfigurationManager.AppSettings["clockwork_url"];
             Clockwork.Instance.API_KEY = ConfigurationManager.AppSettings["clockwork_key"];
-            SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
         }
 
         protected override void OnStop()
@@ -43,28 +41,28 @@ namespace MMPLogger
 
         #region Session Logic
 
-        void SystemEvents_SessionSwitch(object sender, SessionSwitchEventArgs e)
+        protected override void OnSessionChange(SessionChangeDescription reason)
         {
-            DoAction(e.Reason);
+            DoAction(reason.Reason);
         }
 
-        private void DoAction(SessionSwitchReason reason)
+        private void DoAction(SessionChangeReason reason)
         {
             switch (reason)
             {
-                case SessionSwitchReason.SessionLogon:
+                case SessionChangeReason.SessionLogon:
                     Clockwork.Instance.Send("", "Greetings!");
                     break;
 
-                case SessionSwitchReason.SessionLogoff:
+                case SessionChangeReason.SessionLogoff:
                     Clockwork.Instance.Send("", "Don't leeeeave meeee! :(");
                     break;
 
-                case SessionSwitchReason.SessionLock:
+                case SessionChangeReason.SessionLock:
                     Clockwork.Instance.Send("", "Bye~");
                     break;
 
-                case SessionSwitchReason.SessionUnlock:
+                case SessionChangeReason.SessionUnlock:
                     Clockwork.Instance.Send("", "Welcome back~");
                     break;
             }
