@@ -17,33 +17,9 @@ namespace MMPLogger
 
         #region Constructor
 
-        public Service1() //string[] args)
+        public Service1()
         {
             InitializeComponent();
-
-            /*string eventSourceName = "MMPLogger";
-            string logName = "MMPLoggerLog";
-
-            if (args.Count() > 0)
-            {
-                eventSourceName = args[0];
-            }
-
-            if (args.Count() > 1)
-            {
-                logName = args[1];
-            }
-
-            EventLog eventLog1 = new System.Diagnostics.EventLog();
-            if (!System.Diagnostics.EventLog.SourceExists(eventSourceName))
-            {
-                System.Diagnostics.EventLog.CreateEventSource(eventSourceName, logName);
-            }
-
-            eventLog1.Source = eventSourceName;
-            eventLog1.Log = logName;
-
-            components.Add(eventLog1);*/
         }
 
         #endregion
@@ -77,19 +53,19 @@ namespace MMPLogger
             switch (reason)
             {
                 case SessionSwitchReason.SessionLogon:
-                    Clockwork.Instance.Send("07858055210", "Greetings!");
+                    Clockwork.Instance.Send("", "Greetings!");
                     break;
 
                 case SessionSwitchReason.SessionLogoff:
-                    Clockwork.Instance.Send("07858055210", "Don't leeeeave meeee! :(");
+                    Clockwork.Instance.Send("", "Don't leeeeave meeee! :(");
                     break;
 
                 case SessionSwitchReason.SessionLock:
-                    Clockwork.Instance.Send("07858055210", "Bye~");
+                    Clockwork.Instance.Send("", "Bye~");
                     break;
 
                 case SessionSwitchReason.SessionUnlock:
-                    Clockwork.Instance.Send("07858055210", "Welcome back~");
+                    Clockwork.Instance.Send("", "Welcome back~");
                     break;
             }
         }
