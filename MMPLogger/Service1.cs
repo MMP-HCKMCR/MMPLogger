@@ -9,6 +9,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using MMPLogger.MMPWebService;
 
 namespace MMPLogger
 {
@@ -66,6 +67,11 @@ namespace MMPLogger
                 case SessionChangeReason.SessionUnlock:
                     Clockwork.Instance.Send("", "Welcome back~");
                     break;
+            }
+
+            using (var service = new MMPService())
+            {
+                service.AddUserEventByEventTypeId(string.Format("{0}/{1}", Environment.UserDomainName, Environment.UserName), (int)reason);
             }
         }
 
