@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMPLogger", "MMPLogger\MMPLogger.csproj", "{B7C1176E-2507-4232-AF16-A257837A3284}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7C1176E-2507-4232-AF16-A257837A3284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7C1176E-2507-4232-AF16-A257837A3284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7C1176E-2507-4232-AF16-A257837A3284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7C1176E-2507-4232-AF16-A257837A3284}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
