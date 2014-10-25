@@ -31,6 +31,7 @@ namespace MMPLogger
         {
             Clockwork.Instance.ENDPOINT = ConfigurationManager.AppSettings["clockwork_url"];
             Clockwork.Instance.API_KEY = ConfigurationManager.AppSettings["clockwork_key"];
+            DoAction(SessionChangeReason.SessionLogon);
         }
 
         protected override void OnStop()
